@@ -162,7 +162,7 @@
               <encoding>UTF-8</encoding>
               <sourceDirectories>${basedir}</sourceDirectories>
               <includes>**/*</includes>
-              <excludes>**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class,**/static/**</excludes>
+              <excludes>**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class</excludes>
             </configuration>
             <goals>
               <goal>check</goal>
@@ -195,6 +195,12 @@
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>${jacoco.version}</version>
+        <configuration>
+          <excludes>
+              <exclude>**/Q*.java</exclude>
+              <exclude>**/static/**</exclude>
+          </excludes>
+        </configuration>
         <executions>
           <execution>
             <goals>
